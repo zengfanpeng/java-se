@@ -1,0 +1,34 @@
+package com.zeng.javase.homework;
+import jdk.swing.interop.SwingInterOpUtils;
+
+import java.util.Scanner;
+public class HotelMgsSystem {
+    public static void main(String[] args) {
+        Hotel hotel = new Hotel();
+        System.out.println("欢迎使用酒店管理系统！请认真阅读一下使用说明。");
+        System.out.println("【1】表示查看所有房间状态，【2】表示订房，【3】表示退房，【0】表示退出系统");
+        while (true){
+        System.out.println("请输入想要执行的功能对应的编号：");
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+            if (a == 1) {
+                hotel.print();
+            } else if (a == 2) {
+                System.out.println("请输入想预定的房间编号：");
+                Scanner scanner1 = new Scanner(System.in);
+                int b = scanner1.nextInt();
+                hotel.order(b);
+            } else if (a == 3) {
+                System.out.println("请输入想退的房间编号：");
+                Scanner scanner1 = new Scanner(System.in);
+                int b = scanner1.nextInt();
+                hotel.checkOut(b);
+            } else if (a == 0) {
+                System.out.println("谢谢使用酒店管理系统，欢迎下次使用！");
+                return;
+            } else {
+                System.out.println("您输入的功能编号有误,请重新输入");
+            }
+        }
+    }
+}
