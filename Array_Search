@@ -1,0 +1,22 @@
+public class Array_Search{
+    public static void main(String[] args) {
+        int[] arr ={5,10,2,9,3,8,4,7};
+        int index=arraySearch1(arr,9);
+        System.out.println(index==-1? "该元素在此数组不存在！":"该元素在此数组的下标是："+index);
+    }
+
+    public static int arraySearch1(int[] arr, int i) {
+        int begin = 0;
+        int end = arr.length - 1;
+        while (begin <= end) {
+            int middle = (begin + end) / 2;
+            if (arr[middle] == i) {
+                return middle;
+            } else if (arr[middle] < i) {
+                begin = middle + 1;
+            } else {
+                end = middle - 1;
+            }
+        }
+        return -1;
+    }
